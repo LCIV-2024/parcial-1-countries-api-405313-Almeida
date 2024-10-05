@@ -1,10 +1,17 @@
 package ar.edu.utn.frc.tup.lciii.repository;
 
+import ar.edu.utn.frc.tup.lciii.model.Country;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-/**
- * Completar segun corresponda
- */
+import java.util.List;
+
 @Repository
-public interface CountryRepository {
+public interface CountryRepository extends JpaRepository<Country, Long> {
+    List<Country> findByCodeOrName(String code, String name);
+    List<Country> findByCode(String code);
+    List<Country> findByName(String name);
+
+    List<Country> findByRegion(String region);
+    List<Country> findByLanguages(String language);
 }
