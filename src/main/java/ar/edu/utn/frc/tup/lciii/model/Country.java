@@ -38,4 +38,22 @@ public class Country {
     @Getter @Setter
     @ElementCollection
     private Map<String, String> languages;
+
+
+    public Country() {
+    }
+
+    public Country(Long id, String name, long population, double area, String code, String region, List<String> borders, Map<String, String> languages) {
+        this.id = id;
+        this.name = name;
+        this.population = population;
+        this.area = area;
+        this.code = code;
+        this.region = region;
+        this.borders = borders;
+        this.languages = languages;
+    }
+
+    public Country(String c1, String country1, long l, double v, String region1, Object o, Object o1) {
+    }
 }
