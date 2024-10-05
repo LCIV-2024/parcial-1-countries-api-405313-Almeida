@@ -28,35 +28,10 @@ class CountryServiceTest {
     void setUp(){
         MockitoAnnotations.openMocks(this);
     }
-
-//    @Test
-//    void testGetAllCountries() {
-//
-//    }
-
-//    @Test
-//    void testGetAllCountriesDTO_CodeAndName() {
-//
-//    }
-//
-//
-//    @Test
-//    void testGetAllCountriesForRegion() {
-//
-//    }
-//
-//    @Test
-//    void testGetAllCountriesForLanguage() {
-//
-//    }
-//
-//    @Test
-//    void testGetCountryMoreBorders() {
-//
-//    }
+    
     @Test
     void testGetAllCountries() {
-        // Mock the API response
+        
         Map<String, Object> countryData1 = new HashMap<>();
         countryData1.put("name", Map.of("common", "Country1"));
         countryData1.put("population", 1000000);
@@ -78,13 +53,13 @@ class CountryServiceTest {
         List<Map<String, Object>> apiResponse = Arrays.asList(countryData1, countryData2);
         when(restTemplate.getForObject(any(String.class), any(Class.class))).thenReturn(apiResponse);
 
-        // Mock the repository save method
+        
         when(repository.saveAll(any())).thenReturn(Arrays.asList(new Country(), new Country()));
 
-        // Call the service method
+        
         List<Country> countries = sut.getAllCountries();
 
-        // Assertions
+        
         assertNotNull(countries);
         assertEquals(2, countries.size());
         verify(repository, times(1)).saveAll(any());
