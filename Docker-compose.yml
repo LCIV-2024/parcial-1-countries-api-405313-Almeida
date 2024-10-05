@@ -1,0 +1,7 @@
+services:
+  user-service:
+    container_name: user-service-container
+    image: user-service-image:latest
+    build: .
+    ports:
+      8080:8080
